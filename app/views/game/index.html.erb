@@ -1,11 +1,17 @@
 <title>Alphalanche</title>
+<div id="game-data" 
+    data-dictionary='["dog", "cat", "wolf"]' 
+    data-letters=<%= ("A".."Z").to_a.to_json %>    
+    ></div>
 <div id="container">
     <h1 id="title">Alphalanche</h1>
+    <div id="pass-turn"><h2>Pass Turn</h2></div>
         <table id="play-area">
         <% 4.times do |i| %>
             <tr>
                 <% 4.times do |j| %>
-                    <td class="game-cell" data-x="<%= i %>" data-y="<%= j %>"></td>
+                    <td class="game-cell" data-x="<%= i %>" data-y="<%= j %>">
+                    </td>
                 <% end %>
             </tr>
         <% end %>

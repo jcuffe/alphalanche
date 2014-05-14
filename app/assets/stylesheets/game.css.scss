@@ -7,8 +7,21 @@
 
 #title {
     text-align: center;
-    text-size: 36pt;
+    font-size: 4em;
     margin-bottom: 50px;
+}
+
+#pass-turn {
+    width: 50%;
+    margin: auto;
+    margin-bottom: 100px;
+    background-color: blue;
+    h2 {
+        padding: 40px;    
+        text-align: center;
+        font-size: 2em;
+        color: white;
+    }
 }
 
 #play-area {
@@ -17,6 +30,12 @@
 }
 
 .game-cell {
+    width: 25%;
+    max-height: 150px;
+    max-width: 150px;
+    color: #fff;
+    font-size: 6em;
+    text-align: center;
     background-color: #000;
     border: 2px solid #ddd;
 }
