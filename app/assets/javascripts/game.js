@@ -6,6 +6,7 @@
 //});
 
 $(function() {
+    $(".game-cell").css("height", $(".game-cell").css("width"));
     $(".game-cell").click(function() {
         $(this).css("background-color", "#444");
     });

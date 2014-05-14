@@ -3,21 +3,20 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #container {
-    max-height: 800px;
-    max-width: 480px;
 }
 
 #title {
     text-align: center;
+    text-size: 36pt;
+    margin-bottom: 50px;
 }
 
 #play-area {
     margin: auto;
+    width: 90%;
 }
 
 .game-cell {
-    height: 100px;
-    width: 100px;
     background-color: #000;
     border: 2px solid #ddd;
 }
