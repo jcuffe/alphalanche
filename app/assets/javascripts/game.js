@@ -1,5 +1,9 @@
 // on document ready
 $(function() {
+
+    // hardcoded gameplay grid sizes
+    grid_height = 4;
+    grid_width = 4;
     
     // initialize data stores
     dictionary = $("#game-data").data("dictionary");
@@ -7,28 +11,63 @@ $(function() {
 
     // function to add letters to a random square
     function add_letter(count) {
-        for (i = 0; i < count; i++) {
+       
+        // find all empty cells
+        cells = empty_cells();
 
+        // if there are no empty cells, the game is over
+        if (cells.length < count) {
+            alert("Game over!");
+            return;
+        }
+        
+        for (i = 0; i < count; i++) {
+             
             // pick a random letter from the alphabet array
             letter = letters[Math.floor(Math.random() * 100 % 26)];
 
-            // choose a random cell and update it with the new letter
-            x = Math.floor(Math.random() * 100) % 4;
-            y = Math.floor(Math.random() * 100) % 4;
-            cell = $("[data-x='" + x + "'][data-y='" + y + "']");
+            // pick a random cell by removing it from the empty cells array
+            index = Math.floor(Math.random() * 100 % cells.length);
+            cell = cells.splice(index, 1)[0];
+
+            // assign letter to cell
             cell.data("letter", letter);
             cell.html(letter);
         }
     }
 
-    // calculate proper height for square cells, and attach onclick handler
+    // return an array of empty tiles or an empty array
+    // iterates over each cell and pushes cells with no letter to an array, returning the array
+    function empty_cells() {
+        cells = []
+        for (x = 0; x < grid_height; x++) {
+            for (y = 0; y < grid_width; y++) {
+                cell = $("[data-x='" + x + "'][data-y='" + y + "']");
+                if (cell.data("letter") == "") {
+                    cells.push(cell);
+                }
+            }
+        }
+        return cells;
+    }
+
+    // calculate proper height for square cells, initialize data, and attach onclick handler
     $(".game-cell").css("height", $(".game-cell").css("width"));
     $(".game-cell").click(function() {
-        $(this).css("background-color", "#444");
+        if ($(this).data("selected") == "true") {
+            $(this).css("background-color", "#000");
+            pop_letter($(this).html)
+
+        } else {
+            $(this).css("background-color", "#444");
+        }
     });
 
     // onclick handler for "pass turn" button
     $("#pass-turn").click(function() {
         add_letter(1);
     });
+
+    // initialize game board with 6 letters
+    add_letter(6);
 });
