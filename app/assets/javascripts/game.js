@@ -14,15 +14,9 @@ $(function() {
        
         // find all empty cells
         cells = empty_cells();
-
-        // if there are no empty cells, the game is over
-        if (cells.length < count) {
-            alert("Game over!");
-            return;
-        }
         
         for (i = 0; i < count; i++) {
-             
+
             // pick a random letter from the alphabet array
             letter = letters[Math.floor(Math.random() * 100 % 26)];
 
@@ -33,6 +27,13 @@ $(function() {
             // assign letter to cell
             cell.data("letter", letter);
             cell.html(letter);
+            
+            // game ends if the last cell has just been filled
+            if (cells.length == 1) {
+                alert("Game over!");
+                reset_game();
+                return;
+            }
         }
     }
 
@@ -49,6 +50,10 @@ $(function() {
             }
         }
         return cells;
+    }
+
+    function reset_game() {
+        return;
     }
 
     // calculate proper height for square cells, initialize data, and attach onclick handler
