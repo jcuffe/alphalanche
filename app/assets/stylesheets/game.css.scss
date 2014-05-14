@@ -1,3 +1,23 @@
 // Place all the styles related to the game controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#container {
+    max-height: 800px;
+    max-width: 480px;
+}
+
+#title {
+    text-align: center;
+}
+
+#play-area {
+    margin: auto;
+}
+
+.game-cell {
+    height: 100px;
+    width: 100px;
+    background-color: #000;
+    border: 2px solid #ddd;
+}
