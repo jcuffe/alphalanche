@@ -5,15 +5,24 @@
     ></div>
 <div id="container">
     <h1 id="title">Alphalanche</h1>
-    <div id="pass-turn"><h2>Pass Turn</h2></div>
-        <table id="play-area">
+    <div id="play-area">
+        <div class="status">
+            <div id="current-word"></div> 
+            <div id="current-score">0</div>
+        </div>
+        <div class="game-buttons">
+            <div id="pass-turn">Pass</div>
+            <div id="score-word">Score</div>
+            <div id="clear-word">Clear</div>
+            <div id="restart-game">Restart</div>
+        </div>
         <% 4.times do |i| %>
-            <tr>
+            <div class="game-row">
                 <% 4.times do |j| %>
-                    <td class="game-cell" data-x="<%= i %>" data-y="<%= j %>" data-letter="">
-                    </td>
+                    <div class="game-cell" data-x="<%= i %>" data-y="<%= j %>" data-letter="">
+                    </div>
                 <% end %>
-            </tr>
+            </div>
         <% end %>
-    </table>
+    </div>
 </div>

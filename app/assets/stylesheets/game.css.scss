@@ -3,6 +3,10 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #container {
+    div {
+        float: left;
+    }
+    width: 480px;
 }
 
 #title {
@@ -11,31 +15,77 @@
     margin-bottom: 50px;
 }
 
-#pass-turn {
-    width: 50%;
-    margin: auto;
-    margin-bottom: 100px;
-    background-color: blue;
-    h2 {
-        padding: 40px;    
+.game-buttons {
+    div {
+        width: calc(25% - 4px);
+        border: 2px solid #bbb;
+        padding-top: 10px;    
+        padding-bottom: 10px;    
         text-align: center;
-        font-size: 2em;
-        color: white;
+        font-size: 1.5em;
+        color: #ddd;
     }
+    clear: both;
+    width: 100%;
+}
+
+.status {
+    clear: both;
+    width: calc(100% - 1px);
+    div {
+        border: 2px solid #bbb;
+        height: 70px;
+        line-height: 70px;
+        font-size: 2em;
+        text-align: center;
+        vertical-align: middle;
+        color: #ddd;
+    }
+}
+
+#current-word {
+    background-color: #999;
+    width: calc(70% - 4px);
+}
+
+#current-score {
+    background-color: purple;
+    width: calc(30% - 4px);
+}
+
+#pass-turn {
+    background-color: blue;
+}
+#restart-game {
+    background-color: red;
+}
+#score-word {
+    background-color: green;
+}
+#clear-word {
+    background-color: yellow;
 }
 
 #play-area {
     margin: auto;
-    width: 90%;
+    width: 100%;
+}
+
+.game-row {
+    clear:both;
+    width: 100%;
 }
 
 .game-cell {
-    width: 25%;
-    max-height: 150px;
-    max-width: 150px;
+    width: calc(25% - 4px);
     color: #fff;
     font-size: 6em;
     text-align: center;
-    background-color: #000;
-    border: 2px solid #ddd;
+    background-color: #333;
+    border: 2px solid #bbb;
+}
+
+.selected {
+    background-color: #ddd;
+    color: #333;
 }
